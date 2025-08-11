@@ -10,14 +10,20 @@ import SwiftUI
 
 
 struct ApplianceSelector: View {
-    var body: some View {
-        
-        VStack(){
-            HeaderTemplate(headerTitle: "Select your appliance", hasAddFunction: true)
-            ApplianceRow(status: "Heating", itemName: "Bania", temperature: 35)
-        }
-        Spacer()
-    }
+	var body: some View {
+		
+			NavigationView{
+				VStack{
+					HeaderTemplate(headerTitle: "Select your appliance", hasAddFunction: true)
+					ScrollView (.vertical){
+					ApplianceRow(status: "Heating", itemName: "Bania", temperature: 35)
+					ApplianceRow(status: "Filtering", itemName: "Jacky2", temperature: 33)
+					
+					Spacer()
+				}
+			}
+		}
+	}
 }
 
 #Preview {
