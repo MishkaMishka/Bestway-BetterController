@@ -13,31 +13,35 @@ struct ApplianceRow: View {
     let temperature: Int
     
     //TODO: Implement temperature units
-    var body: some View {
-        HStack() {
-            VStack(){
-                    HStack() {
-                            Image(systemName: "globe")
-                                .font(.largeTitle)
-                            Text(itemName)
-                                .font(.title)
-                            Spacer()
-                            VStack (alignment:.trailing){
-                                Text("\(temperature) °C")
-                                    .font(.title3)
-                                    .bold()
-                                Text(status)
-                                    .font(.caption)
-                            }
-                    }
-                    .padding(10)
-            }.frame(minWidth:0, maxWidth: .infinity, maxHeight: 85)
-                .background(Color(.secondarySystemBackground))
-                .cornerRadius(15)
-                .padding()
-                .shadow(radius: 5)
-        }
-    }
+	//TODO: Implement device view and change desination 
+	var body: some View {
+		NavigationLink(destination: DeviceView(deviceName: itemName)){
+			HStack() {
+				VStack(){
+					HStack() {
+						Image(systemName: "globe")
+							.font(.largeTitle)
+						Text(itemName)
+							.font(.title)
+						Spacer()
+						VStack (alignment:.trailing){
+							Text("\(temperature) °C")
+								.font(.title3)
+								.bold()
+							Text(status)
+								.font(.caption)
+						}
+					}
+					.padding(10)
+				}.frame(minWidth:0, maxWidth: .infinity, minHeight: 85 ,maxHeight: 85)
+					.background(Color(.secondarySystemBackground))
+					.cornerRadius(15)
+					.padding(.horizontal,10.0)
+					.padding(.vertical, 2.0)
+					.shadow(radius: 2)
+			}
+		}.buttonStyle(.plain)
+	}
 }
 
 #Preview {
