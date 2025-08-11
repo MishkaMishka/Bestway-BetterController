@@ -11,7 +11,7 @@ import SwiftUI
 struct Bestway_BetterControllerApp: App {
     var body: some Scene {
         WindowGroup {
-            WelcomePage()
+            SplashView()
         }
     }
 }
