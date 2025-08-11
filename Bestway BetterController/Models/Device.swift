@@ -10,20 +10,10 @@ import Foundation
 struct Device {
     var id: Int
     var name: String
-    var status: String
-    var temperature: Int
+    var status: String = "Unknown"
+    var temperature: Int = 0
     
     // Connection related properties
     var ip: String
     var port: Int
-    
-    // Initializer
-    init(id: Int, name: String, status: String, temperature: Int, ip: String, port: Int) {
-        self.id = id
-        self.name = name
-        self.status = status
-        self.temperature = temperature
-        self.ip = ip
-        self.port = port
-    }
 }
