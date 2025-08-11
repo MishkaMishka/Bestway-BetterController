@@ -14,22 +14,20 @@ struct HeaderTemplate: View {
     
     var body: some View {
             HStack(alignment: .top){
-                VStack(alignment: .leading, spacing: 5) {
+                VStack(alignment: .leading) {
                     Text(headerTitle)
                         .font(.title)
                         .padding()
                 }
                 Spacer()
                 HStack(alignment: .center){
-                    if (hasAddFunction) {
-                        Button( action: {
-                            //some actions
-                        }) {
-                            Image(systemName: "plus")
-                                .padding(20)
-                                .font(.system(size: 20))
-                        }
-                    }
+					if (hasAddFunction) {
+						NavigationLink(destination: AddDeviceView()) {
+							Image(systemName: "plus")
+								.padding(20)
+								.font(.system(size: 20))
+						}
+					}
                 }
             }
             Divider()
