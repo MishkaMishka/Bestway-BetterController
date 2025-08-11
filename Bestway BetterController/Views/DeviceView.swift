@@ -8,11 +8,20 @@
 import SwiftUI
 
 struct DeviceView: View {
+	
+	@State var deviceName : String  = "Placeholder"
+	
+	
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+		ZStack{
+			VStack{
+				HeaderTemplate(headerTitle: deviceName, hasAddFunction: false)
+				Spacer()
+			}
+		}
     }
 }
 
 #Preview {
-    DeviceView()
+    DeviceView(deviceName: "Name")
 }
