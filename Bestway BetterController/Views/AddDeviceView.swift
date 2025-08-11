@@ -8,8 +8,43 @@
 import SwiftUI
 
 struct AddDeviceView: View {
+	
+	@State var isTested : Bool = false
+	@State var deviceName : String = ""
+	@State var ipAddress : String = ""
+	@State var port = "8080"
+	
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            
+            VStack {
+                HeaderTemplate(headerTitle: "Add device", hasAddFunction: false)
+                
+                Form {
+					TextField("Device Name", text: $deviceName)
+                    HStack {
+						TextField("Ip Address", text: $ipAddress)
+                        Spacer()
+                        Divider()
+						TextField("8080", text: $port)
+                            .multilineTextAlignment(.trailing)
+                            .padding(.leading)
+                    }
+                    VStack{
+						
+						// TODO: Implement connection test function
+                        Button {
+							self.isTested = true
+                        } label: {
+                            Text("Test Connection")
+                        }
+						.alert("Connection Suceeded!", isPresented: $isTested){
+							Button("Ok", role: .cancel){}
+						}
+                    }
+                }
+            }
+        }
     }
 }
 
